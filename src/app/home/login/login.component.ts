@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/autenticacao/autenticacao.service';
 
 @Component({
@@ -13,7 +14,14 @@ export class LoginComponent implements OnInit {
   senha = '';
 
 
-  constructor(private authService: AutenticacaoService) { } /*  Nesse caso o angular está injetando o serviço do arquivo AutenticacaoService */
+  constructor(
+    private authService: AutenticacaoService,
+    private router: Router){ }
+
+    /*  Nesse caso o angular está injetando o serviço do arquivo AutenticacaoService */
+
+
+
 
   ngOnInit(): void {
   }
@@ -21,9 +29,10 @@ export class LoginComponent implements OnInit {
   //método
   login() {
     this.authService.autenticar(this.usuario, this.senha).subscribe(
-      /* se usuário estiver correto */
+      /* se usuário estiver correto vai direcionar para a página animais */
     ()=>{
-      console.log('Autenticado com sucesso');
+     this.router.navigate(['animais']); 
+
     },
 
     //comando caso o usuário ou senha estejam errados

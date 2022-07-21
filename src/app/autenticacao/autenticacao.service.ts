@@ -13,7 +13,6 @@ export class AutenticacaoService {
     return this.htppClient.post('http://localhost:3000/user/login',{
       userName: usuario,
       password: senha,
-
     } )
 
   }

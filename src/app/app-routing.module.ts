@@ -7,11 +7,20 @@ const routes: Routes = [
     pathMatch:'full',        /* Esse atributo retira todos os espaço */
     redirectTo: 'home',       /* Redireciona para o Homer */
   },
-
+  // Criando as rotas dos caminhos
   {
     path: 'home',
     loadChildren:() => import('./home/home.module').then((m)=> m.HomeModule),   /* comando da rota que será executada ao clicar no home */
+  },
+
+  {
+    path: 'animais',
+    loadChildren:() => import('./animais/animais.module').then((m)=> m.AnimaisModule),
   }
+
+
+
+
 ];
 
 
